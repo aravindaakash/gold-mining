@@ -1,0 +1,8 @@
+requests 
+beautifulsoup4
+ipdb
+cloudscraper
+playwright
+colorama
+Flask
+prettytable
