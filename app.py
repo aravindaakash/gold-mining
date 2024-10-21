@@ -135,6 +135,8 @@ def get_html_content(url, playwrite=False, retries=10, delay=3):
                 
                 if not is_cloudflare_block(content):
                     return content
+                    print("Content fetched successfully")
+                    print(content)
                 else:
                     print(f"Cloudflare block detected, retrying... (Attempt {attempt + 1}/{retries})")
         else:
