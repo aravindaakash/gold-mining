@@ -1,0 +1,64 @@
+<!-- ./scripts/gold-price/templates/gold_prices.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gold Price Comparison</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <h1>Gold Price Comparison</h1>
+  <p>Date: {{ data['date'] }}</p>
+  <p>Gold 22K Price: ₹{{ data['gold_22k_price'] }}</p>
+  <p>Gold 24K Price: ₹{{ data['gold_24k_price'] }}</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Store</th>
+        <th>Carat</th>
+        <th>Rate</th>
+        <th>Purity</th>
+        <th>Weight</th>
+        <th>Discount</th>
+        <th>Making Charges</th>
+        <th>GST</th>
+        <th>Grand Total</th>
+        <th>Extra amount</th>
+        <th>Link</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for price in prices %}
+      <tr>
+        <td>{{ price['store'] }}</td>
+        <td>{{ price['carat'] }}</td>
+        <td>{{ price['Rate'] }}</td>
+        <td>{{ price['Purity'] }}</td>
+        <td>{{ price['Weight'] }}</td>
+        <td>{{ price.get('Discount', price.get('discount', 'NA')) }}</td>
+        <td>{{ price['Making Charges'] }}</td>
+        <td>{{ price['gst'] }}</td>
+        <td>{{ price['Grand Total'] }}</td>
+        <td>{{ price['Extra amount'] }}</td>
+        <td><a href="{{ price['Link'] }}" target="_blank">Link</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>
