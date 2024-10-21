@@ -423,7 +423,7 @@ def gold_coin_prices():
 
 app = Flask(__name__)
 
-@app.route('/gold-prices', methods=['GET'])
+@app.route('/', methods=['GET'])
 def gold_coin_prices():
   prices = []
   global BASE_PRICE
